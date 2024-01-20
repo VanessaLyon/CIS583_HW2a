@@ -12,8 +12,9 @@ def sign(m):
 
     # generate signature
     message = encode_defunct(text=m)
-    signed_message = eth_account.account.sign_message(message, private_key)
+    signature = account.sign_message(message)
 
-    assert isinstance(signed_message, eth_account.datastructures.SignedMessage)
+    assert isinstance(signature, eth_account.datastructures.Signature)
 
-    return eth_address, signed_message
+    return eth_address, signature
+
